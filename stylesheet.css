@@ -1,7 +1,18 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
 html {
     height: 99vh;
 }
 
+:root {
+    --header-footer-color: #0F1035;
+    --sidebar-color: #7FC7D9;
+    --navbar-color: #365486;
+    --background-color: #DCF2F1;
+}
 
 .page-container {
     display: grid;
@@ -10,116 +21,201 @@ html {
     height: 99vh;
 }
 
+.header, .footer {
+    background-color: var(--header-footer-color);
+    color: var(--background-color)
+}
+
 .header {
     grid-row: 1 / 2;
     grid-column: 1 / 4;
-    background-color: lightblue;
+    background-color: var(--header-footer-color);
     display: grid;
 }
 
+.side-nav-bar {
+    grid-row: 2/4;
+    grid-column: 1 / 2;
+    background-color: var(--sidebar-color);
+    min-width: 20vw;
+    padding-top: 4em;
+    padding-left: 1em;
+    margin: 10px;
+    border-radius: 3px;
+}
+
 ul.header-list-items {
-    display: flex;
+    display: grid;
     justify-content: space-between;
     align-items: center;
     gap: 15px;
     padding-right: 15px;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 2fr .7fr .3fr;
+}
+
+li.dog-days-logo {
+    grid-row: 1 / 2;
+    grid-column: 1 / 2;
+    padding-left: 15px;
+}
+
+li.my-business-name {
+    grid-row: 1 / 2;
+    grid-column: 2 / 3;
+    justify-self: center;
+    font-size: 3rem;
+}
+
+li.home-search-bar {
+    grid-row: 1 / 2;
+    grid-column: 3 / 4;
+    justify-self: end;
+}
+
+input[type="search"] {
+    outline: none;
+    border-radius: 10px;
+    text-align: center;
+}
+
+fieldset {
+    outline: none;
+    border-radius: 10px;
+    border-color: var(--header-footer-color);
+    border-style: hidden;
+}
+
+li.profile-gateway-image {
+    grid-row: 1 / 2;
+    grid-column: 4 / 5;
+    justify-self: end;
 }
 
 .top-nav-bar {
     grid-row: 2 / 3;
     grid-column: 2 / 4;
-    background-color: aquamarine;
+    background-color: var(--navbar-color);
     display: grid;
     align-content: space-around;
+    border-radius: 5px;
+    margin: .5em 2em 0em;
+}
+
+.top-nav-bar-container {
+    background-color: var(--background-color);
 }
 
 ul.top-nav-items-ul {
     display: grid;
     grid-template-rows: 1fr;
     grid-template-columns: repeat(6, 1fr);
-    justify-items: center
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+}
+
+li.top-nav-buttons {
+    background-color: var(--background-color);
+    margin: 1em 3em;
+    border-radius: 1em;
+    padding: .4em 1em;
+}
+
+li#home-nav-button:hover {
+    background-color: white;
 }
 
 .side-nav-bar {
     grid-row: 2/4;
     grid-column: 1 / 2;
-    background-color: blue;
+    background-color: var(--sidebar-color);
     min-width: 20vw;
     padding-top: 4em;
+    padding-left: 1em;
+    margin: 10px;
+    border-radius: 3px;
 }
+
 .center-info-summaries {
     grid-row: 3 / 4;
     grid-column: 2 / 4;
-    background-color: rgb(223, 222, 222);
+    background-color: white;
     display: grid;
     grid-template-rows: .1fr repeat(2, 1fr) .2fr;
     grid-template-columns: .1fr repeat(4, 1fr) .1fr;
     gap: .4em;
 }
 
+.summary-cards {
+    background-color: var(--background-color);
+    border: solid 2px var(--navbar-color);
+    box-shadow: inset 2px 2px 4px var(--navbar-color);
+}
+
 div#dogs-in-the-house-summary {
     grid-row: 2 / 4;
     grid-column: 2 / 3;
-    border: solid 1px blue;
-    background-color: lightblue;
+    /* border: solid 1px blue;
+    background-color: lightblue; */
     padding: 1em;
     text-align: center;
-    box-shadow: inset 2px 2px 4px blue;
+    /* box-shadow: inset 2px 2px 4px blue; */
     /* margin: .5em; */
 }
 
 div#current-dog-pic {
     grid-row: 2 / 3;
     grid-column: 3 / 4;
-    border: solid 1px rgb(29, 151, 100);
-    background-color: rgb(183, 218, 183);
+    /* border: solid 1px;
+    background-color: rgb(183, 218, 183); */
     padding: 1em;
     text-align: center;
-    box-shadow: inset 2px 2px 4px rgb(122, 212, 126);
+    /* box-shadow: inset 2px 2px 4px rgb(122, 212, 126); */
     /* margin: .5em; */
 }
 
 div#current-dog-summary {
     grid-row: 3 / 4;
     grid-column: 3 / 4;
-    border: solid 1px rgb(102, 172, 119);
-    background-color: rgb(167, 206, 176);
+    /* border: solid 1px rgb(102, 172, 119);
+    background-color: rgb(167, 206, 176); */
     padding: 1em;
     text-align: center;
-    box-shadow: inset 2px 2px 4px rgb(140, 199, 153);
+    /* box-shadow: inset 2px 2px 4px rgb(140, 199, 153); */
     /* margin: .5em; */
 }
 
 div#todays-appts-summary {
     grid-row: 2 / 4;
     grid-column: 4 / 5;
-    border: solid 1px rgb(78, 28, 41);
-    background-color: rgb(248, 181, 190);
+    /* border: solid 1px rgb(78, 28, 41);
+    background-color: rgb(248, 181, 190); */
     padding: 1em;
     text-align: center;
-    box-shadow: inset 2px 2px 4px rgb(105, 17, 17);
+    /* box-shadow: inset 2px 2px 4px rgb(105, 17, 17); */
     /* margin: .5em; */
 }
 
 div#messages-frm-time-period {
     grid-row: 2 / 3;
     grid-column: 5 / 6;
-    border: solid 1px rgb(228, 157, 65);
-    background-color: rgb(151, 122, 42);
+    /* border: solid 1px rgb(228, 157, 65);
+    background-color: rgb(151, 122, 42); */
     padding: 1em;
     text-align: center;
-    box-shadow: inset 2px 2px 4px rgb(66, 61, 11);
+    /* box-shadow: inset 2px 2px 4px rgb(66, 61, 11); */
     /* margin: .5em; */
 }
 
 div#nmbr-of-dogs-in-house-today {
     grid-row: 3 / 4;
     grid-column: 5 / 6;
-    border: solid 1px rgb(124, 33, 143);
-    background-color: rgb(198, 151, 216);
+    /* border: solid 1px rgb(124, 33, 143);
+    background-color: rgb(198, 151, 216); */
     padding: 1em;
     text-align: center;
-    box-shadow: inset 2px 2px 4px rgb(53, 13, 54);
+    /* box-shadow: inset 2px 2px 4px rgb(53, 13, 54); */
     /* margin: .5em; */
 
 }
@@ -141,14 +237,15 @@ ul.side-nav-items-ul li {
     border-radius: 10px;
     min-width: 12em;
     min-height: 3em;
-    font-size: .7em;
+    font-size: 1em;
     font-weight: bold;
+    color: var(--header-footer-color);
 }
+
 
 .footer {
     grid-row: 4 / 5;
     grid-column: 1 / 4;
-    background-color: blueviolet;
     display: grid;
     justify-content: center;
     align-content: center;
